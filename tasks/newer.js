@@ -156,7 +156,8 @@ module.exports = function(grunt) {
 
         // if dir includes a ':', grunt will split it among multiple args
         dir = Array.prototype.slice.call(arguments, 3).join(':');
-        grunt.file.write(util.getStampPath(dir, taskName, targetName), '');
+        var timeStp=  new Date().getTime();
+        grunt.file.write(util.getStampPath(dir, taskName, targetName),timeStp);
 
         // reconfigure task with original config
         grunt.config.set([taskName, targetName], pluckConfig(id));
